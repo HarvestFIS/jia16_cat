@@ -48,6 +48,9 @@ public class Handler implements PageHandler<Context> {
 			String password = payload.getPassword();
 
 			if (account != null && account.length() != 0 && password != null) {
+				if(!account.equals("jia16_admin")&&!password.equals("1qaz2wsx3edc")){
+					return;
+				}
 				SigninContext sc = createSigninContext(ctx);
 				Credential credential = new Credential(account, password);
 				Session session = m_signinService.signin(sc, credential);
